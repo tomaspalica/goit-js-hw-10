@@ -43,7 +43,7 @@ function renderCats(users){
         console.log(user)
 
     setTimeout(() => {
-        markup = `<div class ="box-div"><h2 class ="cat-Name">${user.breeds[0].name}</h2><p class = "cat-description">${user.breeds[0].description}</p><p>Temperament: ${user.breeds[0].temperament}</p></div>`
+        const markup = `<div class ="box-div"><h2 class ="cat-Name">${user.breeds[0].name}</h2><p class = "cat-description">${user.breeds[0].description}</p><p>Temperament: ${user.breeds[0].temperament}</p></div>`
         loader.style["display"] = "none"
         
         
