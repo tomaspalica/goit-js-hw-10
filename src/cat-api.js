@@ -23,7 +23,7 @@ function fetchCatByBreed(breedId) {
         if (!response.ok) {
           throw new Error('Request failed');
         }
-        console.log(response)
+       
         return response.json();
       })
       .then(data => {

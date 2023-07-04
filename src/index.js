@@ -44,7 +44,7 @@ function renderCats(users){
         catInfo.innerHTML = ""
         loader.style["display"] = "block"
   
-        console.log(user)
+        
 
     setTimeout(() => {
         const markup = `<div class ="box-div"><h2 class ="cat-Name">${user.breeds[0].name}</h2><p class = "cat-description">${user.breeds[0].description}</p><p>Temperament: ${user.breeds[0].temperament}</p></div>`
