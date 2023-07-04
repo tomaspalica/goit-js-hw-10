@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.headers.common["x-api-key"] = "live_G9FX9sbB8zLBZkWaWRv5bUzcXbwrSosEEWTL4iIasUttjgo8dqJz6pjhjQKhuVqA";
 import {fetchBreeds, fetchCatByBreed } from "./cat-api";
 const loader = document.querySelector(".loader")
-const btn = document.querySelector(".button")
+
 const er = document.querySelector(".error")
 const select = document.querySelector(".breed-select")
 const catInfo = document.querySelector(".cat-info")
@@ -28,11 +28,15 @@ function renderCats(users){
 
   fetchBreeds()
     .then((users) => renderCats(users))
-    .catch((error) => console.log(error));
+    .catch((error) =>{ 
+        er.style["display"] = "block";
+        console.log(error)});
 
     select.addEventListener("change", () => {
         fetchCatByBreed(select.value).then((user) => renderCatsInfo(user))
-    .catch((error)=> console.log(error))
+    .catch((error)=> {
+        er.style["display"] = "block"
+        console.log(error)})
     })
 
     function renderCatsInfo(user){
