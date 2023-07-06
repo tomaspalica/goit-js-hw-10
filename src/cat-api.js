@@ -1,40 +1,29 @@
 import axios from "axios";
 axios.defaults.headers.common["x-api-key"] = "live_G9FX9sbB8zLBZkWaWRv5bUzcXbwrSosEEWTL4iIasUttjgo8dqJz6pjhjQKhuVqA";
+const BASE_URL = "https://api.thecatapi.com/v1"
+
+
 function fetchBreeds() {
-    return fetch("https://api.thecatapi.com/v1/breeds").then(
+    return axios.get(`${BASE_URL}/breeds`).then(
       (response) => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-      
-        return response.json();
        
+       return response.data
       }
     );
   }
   
 
 function fetchCatByBreed(breedId) {
-    const url = `https://api.thecatapi.com/v1/images/${breedId}`;
+    const url = `${BASE_URL}/images/${breedId}`;
     
   
 
-    return fetch(url)
+    return axios.get(url)
       .then(response => {
         
-        if (!response.ok) {
-          throw new Error('Request failed');
-        }
-       
-        return response.json();
+       return response.data
       })
-      .then(data => {
-        if (data.length === 0) {
-          throw new Error('No cat data available');
-        }
-        
-        return data;
-      });
+   
   }
 
 

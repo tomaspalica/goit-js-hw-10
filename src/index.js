@@ -27,7 +27,7 @@ function renderCats(users){
   }
 
   fetchBreeds()
-    .then((users) => renderCats(users))
+    .then(renderCats)
     .catch((error) =>{ 
         er.style["display"] = "block";
         console.log(error)});
